@@ -1,6 +1,4 @@
 import { Link } from "react-router-dom";
-/* import arturitologo from "../assets/img/robot.png";
-import { Context } from "../store" */
 import arturitologo from "../assets/img/robot.png";
 
 export const Navbar = () => {
