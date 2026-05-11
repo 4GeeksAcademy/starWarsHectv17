@@ -1,8 +1,10 @@
 import fotoStarWa from "../assets/img/starWar.jpg"
-
+import useGlobalReducer from "../hooks/useGlobalReducer";
 
 
 export const Planeta = (props) => {
+
+    const { dispatch } = useGlobalReducer();
 
         return(
                 <div className="card bg-dark text-white me-3" style={{ minWidth: "18rem", maxWidth: "18rem" }}>
@@ -14,7 +16,11 @@ export const Planeta = (props) => {
                         </p>
                         <div className="d-flex justify-content-between">
                             <button className="btn btn-outline-primary btn-sm">Learn more!</button>
-                            <button className="btn btn-outline-warning btn-sm" onClick = {() => setConta(conta + 1)}>
+                            <button className="btn btn-outline-warning btn-sm" 
+                            onClick={() => dispatch({ 
+                                    type: "AGREGAR", 
+                                    nombre: props.planet  // <--- Aquí es donde se conecta con action.nombre
+                                })}>
                                 <i className="fa-regular fa-heart"></i>
                             </button>
                         </div>

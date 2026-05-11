@@ -20,18 +20,19 @@ export const Home = () => {
 		<div className="container mt-5">
             <h1 className= "mb-5">Characters</h1>
 				<div className="d-flex flex-row overflow-scroll pb-3 shadow-sm" style={{ scrollbarWidth: "thin" }}>
-					{Characters.map((item) => {
-						return <Card key = {item.id} nombre = {item.nombre}/>;
+					{Characters.map((item, index) => {
+						return <Card key = {"char-" + index} nombre = {item.nombre}/>;
 					})}
 				</div>
 		</div>
 		<div className="container mt-5">
             <h1 className= "mb-5">Planets</h1>
 				<div className="d-flex flex-row overflow-scroll pb-3 shadow-sm" style={{ scrollbarWidth: "thin" }}>
-					{Characters.map((item) => {
-						return <Planeta key = {item.id} planet = {item.planet}/>;
+					{Characters.map((item, index) => {
+						return <Planeta key = {"planet-" + index} planet = {item.planet}/>;
 					})}
 				</div>
+
 		</div>
 		</>
 		);	
