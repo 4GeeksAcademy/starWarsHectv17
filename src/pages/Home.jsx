@@ -1,33 +1,36 @@
 import React from "react";
 import fotoStarWa from "../assets/img/starWar.jpg"
-import {Card} from "../components/Card.jsx" ;
+import { Card } from "../components/Card.jsx"; 
+import { Planeta } from "../components/planeta.jsx"
+
 
 export const Home = () => {
     
-    const items = [1, 2, 3, 4, 5, 6, 7, 8];
+    const Characters = [
+		{nombre : 'Epidosiodo I', id : 0, planet : 'saturno' },
+		{nombre : 'Epidosiodo II', id : 1, planet : 'Sentauro' },
+		{nombre : 'Epidosiodo III', id : 2, planet : 'Neptuniano' },
+		{nombre : 'Epidosiodo IV', id : 3, planet : 'Start Kill'},
+		{nombre : 'Epidosiodo V', id : 4, planet : 'Andromeda'},
+		{nombre : 'Epidosiodo VI', id : 5, planet : 'Draco' },
 
+]
     return ( 
 		<>
 		<div className="container mt-5">
             <h1 className= "mb-5">Characters</h1>
 				<div className="d-flex flex-row overflow-scroll pb-3 shadow-sm" style={{ scrollbarWidth: "thin" }}>
-					<Card/>
-					<Card/>
-					<Card/>
-					<Card/>
-					<Card/>
-					<Card/>
+					{Characters.map((item) => {
+						return <Card key = {item.id} nombre = {item.nombre}/>;
+					})}
 				</div>
 		</div>
 		<div className="container mt-5">
             <h1 className= "mb-5">Planets</h1>
 				<div className="d-flex flex-row overflow-scroll pb-3 shadow-sm" style={{ scrollbarWidth: "thin" }}>
-					<Card/>
-					<Card/>
-					<Card/>
-					<Card/>
-					<Card/>
-					<Card/>
+					{Characters.map((item) => {
+						return <Planeta key = {item.id} planet = {item.planet}/>;
+					})}
 				</div>
 		</div>
 		</>

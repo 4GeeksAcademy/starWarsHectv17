@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
+import useGlobalReducer from "../hooks/useGlobalReducer"; // 1. Importas el hook de tu plantilla
 import arturitologo from "../assets/img/robot.png";
 
 export const Navbar = () => {
+	
+  const { store } = useGlobalReducer();
 
 	return (
 		<nav className="navbar navbar-light bg-light">
@@ -10,10 +13,10 @@ export const Navbar = () => {
 					<img className ="text-start" src={arturitologo} alt="robot" style={{ width: "70px"}} />
 				</Link>
 				<div className="ml-auto">
-					<Link to="/demo">
+					<Link>
 						<div class="btn-group">
 							<button type="button" class="btn btn-success">favorito  
-								<span className ='bg-warning ms-2 pe-1 ps-1'>0</span>
+								<span className ='bg-warning ms-2 pe-1 ps-1'>{store.favoritos.length}</span>
 							</button>
 							<button type="button" class="btn btn-success dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
 								<span class="visually-hidden">Toggle Dropdown</span>

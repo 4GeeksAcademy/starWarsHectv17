@@ -1,32 +1,30 @@
-export const initialStore=()=>{
-  return{
-    message: null,
-    todos: [
-      {
-        id: 1,
-        title: "Make the bed",
-        background: null,
-      },
-      {
-        id: 2,
-        title: "Do my homework",
-        background: null,
-      }
-    ]
+import { createContext } from "react";
+
+// 1. Creamos el contexto
+export const Context = createContext(null);
+
+// 2. Datos iniciales
+export const initialStore = () => {
+  return {
+    favoritos: [] // Nuestra lista empieza vacía
   }
 }
 
-export default function storeReducer(store, action = {}) {
-  switch(action.type){
-    case 'add_task':
+// 3. El Reducer (El que procesa las órdenes)
+export default function storeReducer(store, action) {
+  console.log("Acción recibida:", action); // Esto te ayudará a ver en consola si funciona
 
-      const { id,  color } = action.payload
-
+  switch (action.type) {
+    case "AGREGAR":
+      // Si el nombre ya está en favoritos, no lo agregamos (opcional)
+      if (store.favoritos.includes(action.nombre)) return store;
+      
       return {
         ...store,
-        todos: store.todos.map((todo) => (todo.id === id ? { ...todo, background: color } : todo))
+        favoritos: [...store.favoritos, action.nombre] 
       };
+      
     default:
-      throw Error('Unknown action.');
-  }    
+      return store;
+  }
 }
