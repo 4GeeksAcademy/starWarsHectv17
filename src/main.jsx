@@ -1,22 +1,20 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import './index.css'  // Global styles for your application
-import { RouterProvider } from "react-router-dom";  // Import RouterProvider to use the router
-import { router } from "./routes";  // Import the router configuration
-import { StoreProvider } from './hooks/useGlobalReducer';  // Import the StoreProvider for global state management
+import './index.css'  // Estilos globales
+import AppRoutes from "./routes.jsx";  // <-- IMPORTACIÓN CORRECTA: Sin llaves y llamando al componente por defecto
+import { StoreProvider } from './hooks/useGlobalReducer';  // Gestión de estado global
 
 const Main = () => {
     return (
         <React.StrictMode>  
-            {/* Provide global state to all components */}
+            {/* Proveedor del estado global para toda la app */}
             <StoreProvider> 
-                {/* Set up routing for the application */} 
-                <RouterProvider router={router}>
-                </RouterProvider>
+                {/* Renderizamos directamente el componente AppRoutes que ya trae el RouterProvider por dentro */}
+                <AppRoutes />
             </StoreProvider>
         </React.StrictMode>
     );
 }
 
-// Render the Main component into the root DOM element.
+// Renderizar la aplicación en el HTML
 ReactDOM.createRoot(document.getElementById('root')).render(<Main />)

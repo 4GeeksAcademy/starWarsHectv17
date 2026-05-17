@@ -19,7 +19,7 @@ export const Planeta = (props) => {
                             <button className="btn btn-outline-warning btn-sm" 
                             onClick={() => dispatch({ 
                                     type: "AGREGAR", 
-                                    nombre: props.planet  // <--- Aquí es donde se conecta con action.nombre
+                                    nombre: props.planet
                                 })}>
                                 <i className="fa-regular fa-heart"></i>
                             </button>

@@ -11,8 +11,12 @@ export const initialStore = () => {
 }
 
 
-export default function storeReducer(store, action) {
+export default function storeReducer (store, action = {}) {
   console.log("Acción recibida:", action); // Esto te ayudará a ver en consola si funciona
+
+if (!action || !action.type) {
+    return store; // Si no hay acción válida, regresamos el estado intacto
+  }
 
   switch (action.type) {
     case "AGREGAR":

@@ -14,7 +14,17 @@ export const Card = (props) => {
                             Descripción breve del personaje o carta aquí.
                         </p>
                         <div className="d-flex justify-content-between">
-                            <button className="btn btn-outline-primary btn-sm">Learn more!</button>
+                            <button 
+                                className="btn btn-outline-primary"
+                                data-bs-toggle="modal" 
+                                data-bs-target="#exampleModal"
+                                onClick={() => props.setModal({ 
+                                    title: props.planet, 
+                                    text: "Información detallada sobre el planeta " + props.planet 
+                                })}
+                            >
+                                Learn more!
+                            </button>
                             <button className="btn btn-outline-warning btn-sm" onClick={() => dispatch({ type: "AGREGAR", nombre: props.nombre })}>
                                 <i className="fa-regular fa-heart"></i>
                             </button>
